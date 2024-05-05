@@ -1,7 +1,36 @@
 import React from "react";
 import { RxDotFilled } from "react-icons/rx";
+import { Link } from "react-scroll";
 
 const Header = ({ activeSection, handleNavClick }) => {
+  const navLinks = (link, index) => {
+    console.log(typeof link, link);
+    const linkLowerCase = link.toLowerCase();
+    return (
+      <li
+        key={index}
+        className="flex h-2/3 flex-col items-center justify-evenly hover:cursor-pointer"
+      >
+        <Link
+          onClick={() => handleNavClick(`${linkLowerCase}`)}
+          to={linkLowerCase}
+          spy={true}
+          offset={-100}
+          duration={500}
+        >
+          {link}
+        </Link>
+        <RxDotFilled
+          className={
+            activeSection === `${linkLowerCase}`
+              ? "block text-gray-500 "
+              : "hidden"
+          }
+        />
+      </li>
+    );
+  };
+
   return (
     <header className="fixed flex h-20 w-screen border shadow">
       <section className="flex h-full w-1/3 items-center justify-center">
@@ -10,33 +39,51 @@ const Header = ({ activeSection, handleNavClick }) => {
       <section className="flex h-full w-2/3 items-center">
         <nav className="w-full">
           <ul className="flex items-center justify-evenly">
-            <li
-              onClick={() => handleNavClick("home")}
-              className="flex h-2/3 flex-col items-center justify-evenly"
-            >
-              <button type="button">Home</button>
+            {["Home", "About", "Experience", "Projects", "Contact"].map(
+              (link, index) => navLinks(link, index),
+            )}
+            {/* <li className="flex h-2/3 flex-col items-center justify-evenly hover:cursor-pointer">
+              <Link
+                onClick={() => handleNavClick("home")}
+                to="home"
+                spy={true}
+                offset={-100}
+                duration={500}
+              >
+                Home
+              </Link>
               <RxDotFilled
                 className={
                   activeSection === "home" ? "block text-gray-500 " : "hidden"
                 }
               />
             </li>
-            <li
-              onClick={() => handleNavClick("about")}
-              className="flex flex-col items-center"
-            >
-              <button type="button">About</button>
+            <li className="flex flex-col items-center hover:cursor-pointer">
+              <Link
+                onClick={() => handleNavClick("about")}
+                to="about"
+                spy={true}
+                offset={-100}
+                duration={500}
+              >
+                About
+              </Link>
               <RxDotFilled
                 className={
                   activeSection === "about" ? "block text-gray-500 " : "hidden"
                 }
               />
             </li>
-            <li
-              onClick={() => handleNavClick("experience")}
-              className="flex flex-col items-center"
-            >
-              <button type="button">Experience</button>
+            <li className="flex flex-col items-center hover:cursor-pointer">
+              <Link
+                onClick={() => handleNavClick("experience")}
+                to="experience"
+                spy={true}
+                offset={-100}
+                duration={500}
+              >
+                Experience
+              </Link>
               <RxDotFilled
                 className={
                   activeSection === "experience"
@@ -45,11 +92,16 @@ const Header = ({ activeSection, handleNavClick }) => {
                 }
               />
             </li>
-            <li
-              onClick={() => handleNavClick("projects")}
-              className="flex flex-col items-center"
-            >
-              <button type="button">Projects</button>
+            <li className="flex flex-col items-center hover:cursor-pointer">
+              <Link
+                onClick={() => handleNavClick("projects")}
+                to="projects"
+                spy={true}
+                offset={-100}
+                duration={500}
+              >
+                Projects
+              </Link>
               <RxDotFilled
                 className={
                   activeSection === "projects"
@@ -58,11 +110,16 @@ const Header = ({ activeSection, handleNavClick }) => {
                 }
               />
             </li>
-            <li
-              onClick={() => handleNavClick("contact")}
-              className="flex flex-col items-center"
-            >
-              <button type="button">Contact</button>
+            <li className="flex flex-col items-center hover:cursor-pointer">
+              <Link
+                onClick={() => handleNavClick("contact")}
+                to="contact"
+                spy={true}
+                offset={-100}
+                duration={500}
+              >
+                Contact
+              </Link>
               <RxDotFilled
                 className={
                   activeSection === "contact"
@@ -70,7 +127,7 @@ const Header = ({ activeSection, handleNavClick }) => {
                     : "hidden"
                 }
               />
-            </li>
+            </li> */}
           </ul>
         </nav>
       </section>
