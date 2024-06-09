@@ -1,80 +1,162 @@
-import React, { useState } from "react";
-import { RxDotFilled } from "react-icons/rx";
-import { Link } from "react-scroll";
-import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
+import { useCallback, useContext, useEffect, useState } from "react";
+import {
+  RiMenu3Fill,
+  RiSunFill,
+  RiSunLine,
+  RiCloseLargeFill,
+} from "react-icons/ri";
+import { NavBarContext } from "../contexts/NavBarContext";
+import { updateTheme } from "../utils/themeHandler";
+import { AnimatePresence, motion } from "framer-motion";
 
-const Header = ({ activeSection, handleNavClick }) => {
+const renderName = () => "<NK />";
+
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [themeIcon, setThemeIcon] = useState("dark");
+  const { activeMenu, handleActiveMenu } = useContext(NavBarContext);
 
-  const navLinks = (link, index) => {
-    const linkLowerCase = link.toLowerCase();
-    return (
-      <li
-        key={index}
-        className="flex h-2/3 flex-col items-center justify-evenly hover:cursor-pointer"
-      >
-        <Link
-          onClick={() => {
-            handleNavClick(`${linkLowerCase}`);
-            setIsOpen(false);
-          }}
-          to={linkLowerCase}
-          spy={true}
-          offset={-100}
-          duration={500}
-        >
-          {link}
-        </Link>
-        <RxDotFilled
-          className={
-            activeSection === `${linkLowerCase}`
-              ? "block text-gray-500 "
-              : "hidden"
-          }
-        />
-      </li>
-    );
+  const menuList = ["home", "about", "experience", "projects"];
+
+  const renderThemeIcon = useCallback(
+    () => (themeIcon === "dark" ? <RiSunLine /> : <RiSunFill />),
+    [themeIcon],
+  );
+
+  useEffect(() => {
+    renderThemeIcon();
+  }, [themeIcon, renderThemeIcon]);
+
+  const handleThemeIcon = () => {
+    setThemeIcon(themeIcon === "dark" ? "light" : "dark");
+    updateTheme();
+  };
+
+  const handleMenu = () => setIsOpen(!isOpen);
+
+  const formatMenu = (menu) =>
+    menu.substring(0, 1).toUpperCase() + menu.substring(1);
+
+  const navVars = {
+    initial: {
+      scaleY: 0,
+    },
+    animate: {
+      scaleY: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.12, 0, 0.39, 0],
+      },
+    },
+    exit: {
+      scaleY: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.12, 0, 0.36, 1],
+      },
+    },
+  };
+
+  const linkVars = {
+    initial: {
+      y: "30vh",
+      transition: {
+        duration: 0.5,
+      },
+    },
+    open: {
+      y: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
+
+  const containerVars = {
+    initial: {
+      transition: {
+        staggerChildren: 0.9,
+      },
+    },
+    open: {
+      transition: {
+        // delayChildren: 0.3,
+        staggerChildren: 0.09,
+      },
+    },
   };
 
   return (
-    <header className="fixed flex h-20 w-screen items-center justify-between border bg-white shadow">
-      <section className="flex h-full items-center justify-center md:w-1/3">
-        <p className="ml-7 text-xl md:ml-0 md:text-2xl">
-          Nishanthan Karunakaran
+    <header className="relative">
+      <div className="fixed flex w-full items-center justify-between px-4 py-6 shadow-lg">
+        <p className="cursor-pointer text-xl font-bold text-textColor">
+          {renderName()}
         </p>
-      </section>
-
-      <section className="hidden h-full items-center md:flex md:w-2/3">
-        <nav className="hidden w-full md:block">
-          <ul className="flex items-center justify-evenly">
-            {["Home", "About", "Experience", "Projects", "Contact"].map(
-              (link, index) => navLinks(link, index),
-            )}
-          </ul>
-        </nav>
-      </section>
-
-      <section className="block md:hidden">
-        <MdOutlineMenu
-          className="mr-9 block text-2xl md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        />
-        {isOpen && (
-          <div className="absolute left-0 top-0 h-dvh w-screen overflow-hidden bg-white shadow md:hidden">
-            <MdOutlineClose
-              className="ml-auto mr-8 mt-8 block text-2xl md:hidden"
-              onClick={() => setIsOpen(!isOpen)}
-            />
-            <nav className="flex h-full items-center justify-center">
-              <ul className="flex flex-col gap-10">
-                {["Home", "About", "Experience", "Projects", "Contact"].map(
-                  (link, index) => navLinks(link, index),
-                )}
-              </ul>
-            </nav>
+        <div className="flex items-center gap-6">
+          <nav className="hidden md:block">
+            <ul className="flex items-center justify-center gap-10">
+              {menuList.map((menu, index) => (
+                <li
+                  key={index}
+                  className={`${activeMenu === menu ? "text-lg" : "text-md"} cursor-pointer text-textColor`}
+                  onClick={() => {
+                    handleActiveMenu(menu);
+                    handleMenu();
+                  }}
+                >
+                  {formatMenu(menu)}
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div
+            onClick={handleThemeIcon}
+            className="cursor-pointer text-2xl text-iconColor"
+          >
+            {renderThemeIcon()}
           </div>
+          <RiMenu3Fill
+            className="cursor-pointer text-2xl font-bold text-iconColor md:hidden"
+            onClick={handleMenu}
+          />
+        </div>
+      </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.nav
+            variants={navVars}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="absolute top-0 flex h-screen w-full origin-top flex-col items-center gap-28 bg-amber-500 py-4 md:hidden"
+          >
+            <RiCloseLargeFill
+              className="ml-auto mr-4 mt-4 cursor-pointer text-3xl"
+              onClick={handleMenu}
+            />
+            <motion.ul
+              variants={containerVars}
+              initial="initial"
+              animate="open"
+              className="flex flex-col items-center justify-center gap-10"
+            >
+              {menuList.map((menu, index) => (
+                <motion.li
+                  variants={linkVars}
+                  key={index}
+                  className={`${activeMenu === menu ? "text-2xl" : "text-xl"} cursor-pointer`}
+                  onClick={() => {
+                    handleActiveMenu(menu);
+                    handleMenu();
+                  }}
+                >
+                  {formatMenu(menu)}
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.nav>
         )}
-      </section>
+      </AnimatePresence>
     </header>
   );
 };
