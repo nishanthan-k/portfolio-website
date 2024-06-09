@@ -87,7 +87,7 @@ const Header = () => {
   };
 
   return (
-    <header className="relative">
+    <header className="relative w-screen bg-bgColor">
       <div className="fixed flex w-full items-center justify-between px-4 py-6 shadow-lg">
         <p className="cursor-pointer text-xl font-bold text-textColor">
           {renderName()}
@@ -128,7 +128,7 @@ const Header = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="absolute top-0 flex h-screen w-full origin-top flex-col items-center gap-28 bg-amber-500 py-4 md:hidden"
+            className="fixed left-0 top-0 flex h-screen w-full origin-top flex-col items-center gap-28 bg-amber-500 py-4 md:hidden"
           >
             <RiCloseLargeFill
               className="ml-auto mr-4 mt-4 cursor-pointer text-3xl"
