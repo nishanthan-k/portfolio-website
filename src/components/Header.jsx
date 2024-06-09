@@ -87,7 +87,7 @@ const Header = () => {
   };
 
   return (
-    <header className="relative w-screen bg-bgColor">
+    <header className="relative w-screen shadow-lg">
       <div className="fixed flex w-full items-center justify-between px-4 py-6 shadow-lg">
         <p className="cursor-pointer text-xl font-bold text-textColor">
           {renderName()}

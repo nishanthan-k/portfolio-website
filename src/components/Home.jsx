@@ -1,8 +1,7 @@
 import { HiOutlineArrowRight } from "react-icons/hi";
-import Nishanthan from "../assets/images/nishanthan.jpg";
-import { ImLinkedin, ImGithub } from "react-icons/im";
+import { ImGithub, ImLinkedin } from "react-icons/im";
 import { RiTwitterXFill } from "react-icons/ri";
-import { Button } from "flowbite-react";
+import Nishanthan from "../assets/images/nishanthan1.jpg";
 
 const Home = () => {
   const linkSet = [
@@ -17,10 +16,10 @@ const Home = () => {
   return (
     <div
       id="home"
-      className="flex w-screen flex-col items-center justify-center gap-6 p-4"
+      className="flex w-screen flex-col  items-center justify-center gap-6 p-4"
     >
-      <div className="h-1/2 w-1/2">
-        <img src={Nishanthan} className="rounded-full" />
+      <div className="">
+        <img src={Nishanthan} className="h-64 w-64 rounded-full object-cover" />
       </div>
       <div className="flex flex-col-reverse">
         <div className="m-2 flex justify-center gap-6">
@@ -44,14 +43,14 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="flex w-screen justify-evenly">
+      <div className="flex w-screen justify-evenly md:justify-center md:gap-8">
         <button className="text-md rounded-full bg-pink-600 px-6 py-2 font-medium">
           Resume
         </button>
-        <Button pill className="border-none bg-sky-600 px-2">
+        <button className="text-md flex rounded-full bg-sky-600 px-6 py-2 font-medium">
           {"Let's Talk"}
           <HiOutlineArrowRight className="m-auto ml-2 h-4 w-4" />
-        </Button>
+        </button>
       </div>
     </div>
   );
