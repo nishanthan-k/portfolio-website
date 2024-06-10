@@ -23,7 +23,7 @@ const About = () => {
   ];
 
   return (
-    <div id="about" className="flex w-screen flex-col gap-4 p-4">
+    <div id="about" className="flex w-full flex-col gap-4 p-4">
       <p className="text-2xl font-medium md:text-3xl">About me</p>
       <p>
         {"I'm"} Nishanthan Karunakaran, a Frontend Developer from Coimbatore,

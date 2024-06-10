@@ -36,7 +36,7 @@ const App = () => {
   return (
     <div className="box-border h-dvh overflow-x-hidden bg-bgColor text-textColor">
       <Header />
-      <section className="mt-20">
+      <section className="mt-20 px-4 md:px-10 lg:px-20  ">
         <section ref={homeRef}>
           <Home />
         </section>
