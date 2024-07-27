@@ -1,8 +1,8 @@
-import profile from '../assets/nishanthan.jpg';
+import profile from '../assets/images/profile/nishanthan.jpg';
 
 export default function Hero() {
   return (
-    <div className='flex flex-col items-center gap-4 h-screen p-20 md:flex-row-reverse md:justify-center md:items-start lg:justify-evenly'>
+    <section className='flex flex-col items-center gap-4 p-20 md:flex-row-reverse md:justify-center md:items-start lg:justify-evenly'>
       <div className='w-44 h-44 md:w-64 md:h-64 lg:w-72 lg:h-72'>
         <img
           src={profile}
@@ -51,6 +51,6 @@ export default function Hero() {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
