@@ -1,18 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-  :root[theme="dark"] {
-    --textColor: #ffffff;
-    --bgColor: #252424;
-    --buttonColor: #48a8e3;
-    --iconColor: #ffffff;
-  }
-  :root[theme="light"] {
-    --textColor: #000000;
-    --bgColor: #ffffff;
-    --buttonColor: #48a8e3;
-    --iconColor: #000000;
-  }
-}

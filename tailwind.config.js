@@ -1,29 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    './index.html', './src/**/*.{js,ts,jsx,tsx}',
-    'node_modules/flowbite-react/lib/esm/**/*.js',
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        textColor: {
-          DEFAULT: "var(--textColor)",
-        },
-        bgColor: {
-          DEFAULT: "var(--bgColor)",
-        },
-        buttonColor: {
-          DEFAULT: "var(--buttonColor)",
-        },
-        iconColor: {
-          DEFAULT: "var(--iconColor)",
-        },
-      },
-    },
+    extend: {},
   },
-  plugins: [
-    ('flowbite/plugin'),
-    ('prettier-plugin-tailwindcss'),
-  ],
-};
+  plugins: [],
+}
