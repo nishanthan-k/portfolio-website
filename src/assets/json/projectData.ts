@@ -12,7 +12,7 @@ export const projectData: projectPropsType[] = [
     description: 'An platform to practice and communicate entity relationships in database',
     links: {
       github: 'https:github.com/nishanthan-k/er-sketcher',
-      live: 'https:github.com/nishanthan-k/er-sketcher',
+      live: 'https://er-sketcher.netlify.app/',
     },
     techStack: ['React', 'Tailwind css', 'Scss', 'Joint js' ]
   },
@@ -23,7 +23,7 @@ export const projectData: projectPropsType[] = [
     description: 'An single place for the HR\'s and management people to handle the project and employee details',
     links: {
       github: 'https:github.com/nishanthan-k/hr-portal',
-      live: 'https:github.com/nishanthan-k/hr-portal',
+      live: 'https://nishanthan-k-hr-portal.netlify.app/',
     },
     techStack: ['React', 'Scss', 'Semantic ui', 'Formik']
   },
@@ -34,7 +34,7 @@ export const projectData: projectPropsType[] = [
     description: 'Blog app with add, modify, delete and reaction features',
     links: {
       github: 'https:github.com/nishanthan-k/react-redux-blog',
-      live: 'https:github.com/nishanthan-k/react-redux-blog',
+      live: 'https://blog-sights.netlify.app/',
     },
     techStack: ['React', 'Tailwind css', 'Redux']
   },
@@ -45,7 +45,7 @@ export const projectData: projectPropsType[] = [
     description: 'An efficient way to handle the tasks, tasks are stored at local storage',
     links: {
       github: 'https:github.com/nishanthan-k/recoil-to-do-app',
-      live: 'https:github.com/nishanthan-k/recoil-to-do-app',
+      live: 'https://todonet.vercel.app/',
     },
     techStack: ['React', 'Tailwind css', 'Recoil', ]
   },

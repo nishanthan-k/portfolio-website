@@ -5,7 +5,7 @@ import Projects from './components/Projects'
 function App() {
 
   return (
-    <main className='bg-black w-screen text-white flex flex-col items-center gap-10 min-h-screen'>
+    <main className='bg-black w-screen text-white flex flex-col items-center gap-32 px-2 py-10 min-h-screen'>
       <Hero />
       <Projects />
     </main>

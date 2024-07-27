@@ -2,7 +2,7 @@ import profile from '../assets/images/profile/nishanthan.jpg';
 
 export default function Hero() {
   return (
-    <section className='flex flex-col items-center gap-4 p-20 md:flex-row-reverse md:justify-center md:items-start lg:justify-evenly'>
+    <section className='flex flex-col items-center gap-4 md:flex-row-reverse md:justify-center md:items-start lg:justify-evenly'>
       <div className='w-44 h-44 md:w-64 md:h-64 lg:w-72 lg:h-72'>
         <img
           src={profile}
