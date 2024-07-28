@@ -1,6 +1,7 @@
 import React from 'react';
 import { projectData } from '../assets/json/projectData';
 import { projectPropsType } from '../global/types/projectDataType';
+import SectionTitle from '../global/components/SectionTitle';
 
 interface ProjectCardProps {
   data: projectPropsType;
@@ -44,8 +45,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
 
 export default function Projects() {
   return (
-    <section className='flex flex-col items-center gap-6 md:gap-14'>
-      <p className="font-bold text-2xl md:text-3xl">PROJECTS</p>
+    <section className='flex flex-col items-center gap-6 mt-10 md:gap-14'>
+      <SectionTitle title='PROJECTS'/>
 
       <div className='flex flex-col gap-6 md:flex-row md:flex-wrap md:justify-evenly md:gap-10'>
         {projectData.map((item, index) => (
