@@ -8,7 +8,9 @@ function App() {
 
   return (
     <main className='bg-black w-screen text-white flex flex-col items-center gap-20 px-2 py-10 min-h-screen'>
-      <Hero />
+      <section className='mb-4'>
+        <Hero />
+      </section>
       <Skills />
       <Projects />
       <Contact />
