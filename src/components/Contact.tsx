@@ -60,7 +60,7 @@ export default function Contact() {
 
         <button
           type='submit'
-          className='w-max self-center bg-white text-black font-medium px-10 py-2 rounded-xl'
+          className='self-center bg-white text-black font-medium px-10 py-2 md:px-16 rounded-xl'
         >
           Send
         </button>
