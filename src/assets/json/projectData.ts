@@ -17,6 +17,17 @@ export const projectData: projectPropsType[] = [
     techStack: ['React', 'Tailwind css', 'Scss', 'Joint js' ]
   },
   {
+    id: 4,
+    name: 'To Do Net',
+    src: toDoNet,
+    description: 'An efficient way to handle the tasks, tasks are stored at local storage',
+    links: {
+      github: 'https:github.com/nishanthan-k/recoil-to-do-app',
+      live: 'https://todonet.vercel.app/',
+    },
+    techStack: ['React', 'Tailwind css', 'Recoil', ]
+  },
+  {
     id: 2,
     name: 'HR Portal',
     src: hrPortal,
@@ -38,15 +49,5 @@ export const projectData: projectPropsType[] = [
     },
     techStack: ['React', 'Tailwind css', 'Redux']
   },
-  {
-    id: 4,
-    name: 'To Do Net',
-    src: toDoNet,
-    description: 'An efficient way to handle the tasks, tasks are stored at local storage',
-    links: {
-      github: 'https:github.com/nishanthan-k/recoil-to-do-app',
-      live: 'https://todonet.vercel.app/',
-    },
-    techStack: ['React', 'Tailwind css', 'Recoil', ]
-  },
+  
 ]

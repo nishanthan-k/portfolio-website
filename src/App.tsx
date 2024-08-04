@@ -7,7 +7,7 @@ import Skills from './components/Skills'
 function App() {
 
   return (
-    <main className='bg-black w-screen text-white flex flex-col items-center gap-10 px-2 py-10 min-h-screen'>
+    <main className='bg-black w-screen text-white flex flex-col items-center gap-10 px-2 py-10 min-h-screen overflow-hidden'>
       <section className='mb-14'>
         <Hero />
       </section>
